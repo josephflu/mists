@@ -1,0 +1,5 @@
+second level
+
+
+==== phase 2 ====
+rebind keys: north (W) south (S) west(A) south (D) inventory (E) search room (Q) pick up item (R) 
