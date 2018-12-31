@@ -16,6 +16,7 @@ class ChallengeType(Enum):
     Monster=0 # Use item on monster to defeat and open doors
     Puzzle=1  # Answer a puzzle to open doors
     DieImmediately=2 # If an action is taken, die
+    MakeDiscovery=3  # find a hidden door or item
 
 class ItemType:
     Weapon=0 # Weapon to fight Enemy
