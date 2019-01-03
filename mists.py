@@ -22,8 +22,9 @@ def MakeRoom(roomId,description,challengeType):
 #--- Level 1 Rooms
 entryHallRoom = MakeRoom("Entry Hall", "You stand on a sandy beach outside the lair of a Great Dragon. ",ChallengeType.NoChallenge)
 emptyRoom1 = MakeRoom("Empty Room 1", "There is a great hall filled with art mostly depicting a large dragon. What looks like it was a map has been burned, and ripped beyond repair.",ChallengeType.NoChallenge)
-puzzleRoom1 = MakeRoom("Puzzle Room 1", "You have entered a puzzle room.",ChallengeType.Puzzle)
-puzzleRoom1.Actions.append(RoomAction("Solve Puzzle","1", ResultType.DoorsOpen,"You solved the sphynx puzzle. Nice Job, yes we are going to make this part harder, don't worry."))
+puzzleRoom1 = MakeRoom("Puzzle Room 1", "Here lies a large sphynx. All doors close and the sphynx tells you a riddle. What is 14 + 17?",ChallengeType.Puzzle)
+puzzleRoom1.Actions.append(RoomAction("The answer is 31","1", ResultType.DoorsOpen,"Correct, 31. You solved the sphynx puzzle."))
+puzzleRoom1.Actions.append(RoomAction("The answer is 13","2", ResultType.Die,"Sorry, that is not correct. The sphynx breaths fire and you melt into a puddle."))
 cryptRoom = MakeRoom("Crypt Room", "You walk into a crypt filled with many coffins. They look like they have beeen here for thousands of years.",ChallengeType.MakeDiscovery)
 cryptRoom.Actions.append(RoomAction("Open Casket","1",ResultType.Die,"A spirit drifts upward, and enters you, it compels you to enter the largest tomb, and close it. When you gain control of your body again you find that you are locked inside. You suffocate to death."))
 treasureRoom = MakeRoom("Treasure Room", "Here is a room with a pillar in the center. On it is a bag full of coins.",ChallengeType.NoChallenge)
@@ -37,8 +38,10 @@ trollCaveRoom.Actions.append(RoomAction("Attack Troll","1", ResultType.DoorsOpen
 armoryRoom = MakeRoom("Armory Room","There is an abandoned Armory here. The armor racks are all empty, with the exception of one rusted Dagger",ChallengeType.NoChallenge)
 armoryRoom.Item = Item(ItemType.Weapon,"Rusted Dagger")
 emptyRoom4 = MakeRoom("Empty Room 4", "You enter an empty room.",ChallengeType.NoChallenge)
-sphynxRoom = MakeRoom("Sphynx Room", "Here lies a large sphynx. All doors close and the sphynx tells you a riddle.",ChallengeType.Puzzle)
-sphynxRoom.Actions.append(RoomAction("Solve Puzzle","1", ResultType.DoorsOpen,"You solved the sphynx puzzle. Nice Job, yes we are going to make this part harder, don't worry."))
+sphynxRoom = MakeRoom("Sphynx Room", "Here lies a large sphynx. All doors close and the sphynx tells you a riddle. What is black, white and read all over?",ChallengeType.Puzzle)
+sphynxRoom.Actions.append(RoomAction("A newspaper","1", ResultType.DoorsOpen,"You solved the sphynx puzzle. Nice job."))
+sphynxRoom.Actions.append(RoomAction("A bloody zebra","2", ResultType.DoorsOpen,"You solved the sphynx puzzle. Nice job."))
+sphynxRoom.Actions.append(RoomAction("A christmas tree","3", ResultType.DoorsOpen,"Wrong, the sphynx smashes you with his giant paw."))
 AddConnection(entryHallRoom,emptyRoom1,'w')
 AddConnection(emptyRoom1,puzzleRoom1,'n')
 AddConnection(puzzleRoom1,cryptRoom,'n')
@@ -58,8 +61,9 @@ emptyRoom21.IsFirstOfLevel = True
 pitFall21 = MakeRoom("Pitfall Room 2.1","While walking into this room the floor drops and you die", ChallengeType.DieImmediately)
 bankRoom = MakeRoom("Bank Room","A huge vast room lies ahead. As you step into this establishment, you hear the echo of your feet on marble floors. There is a vault here, but it looks like it requires a key.",ChallengeType.NoChallenge)
 oldMarketplace21 = MakeRoom("Old Marketplace","This large square room is what looks like was once a vast marketplace. The smell of rotting fruit corrodes the air.",ChallengeType.NoChallenge)
-puzzleRoom21 = MakeRoom("Puzzle Room 2.1","Solve puzzle ...",ChallengeType.Puzzle)
-puzzleRoom21.Actions.append(RoomAction("Solve Puzzle","1", ResultType.DoorsOpen,"You solved the sphynx puzzle. Nice Job, yes we are going to make this part harder, don't worry."))
+puzzleRoom21 = MakeRoom("Puzzle Room 2.1","Here lies a large sphynx. All doors close and the sphynx tells you a riddle. What is 141 + 19?",ChallengeType.Puzzle)
+puzzleRoom21.Actions.append(RoomAction("The answer is 160","1", ResultType.DoorsOpen,"Correct, 31. You solved the sphynx puzzle."))
+puzzleRoom21.Actions.append(RoomAction("The answer is 45","2", ResultType.Die,"Sorry, that is not correct. The sphynx thrashes you in two with his claws."))
 armory21 = MakeRoom("Armory 2.1","There is an abandoned Armory here. The armor racks are all empty, with the exception of an old bow and arrow",ChallengeType.NoChallenge)
 armory21.Item = Item(ItemType.Weapon,"Bow and Arrow")
 poisonDartHall21 = MakeRoom("Poison Dart Hall","There are many statues in this hall. While looking at a statue a dart comes flying out of his mouth and strikes you, as do many others from around you.",ChallengeType.DieImmediately)
@@ -72,7 +76,7 @@ trollCaveRoom21 = MakeRoom("Troll Cave 2.1","Here lies a large troll. You wake h
 trollCaveRoom21.Actions.append(RoomAction("Attack Troll", "1", ResultType.DoorsOpen,"The Troll dies, and your weapon gets stuck in the troll."))
 puzzleRoom22 = MakeRoom("Puzzle Room 2.2","Solve puzzle ...",ChallengeType.Puzzle)
 puzzleRoom22.Actions.append(RoomAction("Solve Puzzle","1", ResultType.DoorsOpen,"You solved the sphynx puzzle. Nice Job, yes we are going to make this part harder, don't worry."))
-galleryRoom21 = MakeRoom("Old Gallery", "Strange colorful art covers the walls. The vigor has not drained out of these paintings, and it looks untouched by time",ChallengeType.MakeDiscovery)
+galleryRoom21 = MakeRoom("Old Gallery", "Strange colorful art covers the walls. The vigor has not drained out of these paintings, and it looks untouched by time.",ChallengeType.MakeDiscovery)
 galleryRoom21.Actions.append(RoomAction("Search Room", "1", ResultType.DoorsOpen,"While looking cloesly at the paintingd you reach out to touch one. it moves and shakes slightly. Behind it you discover a seceret pasage leading east."))
 undergroundGarden = MakeRoom("Underground Garden","In this silent room lies glowing strange plants, nothing overgrown, it looks like it was trimmed just yesterday.",ChallengeType.NoChallenge)
 undergroundGarden.Actions.append(RoomAction("carefully feel plant","1",ResultType.Die,"The flower-shaped plant you decide to touch first explodes in a ball of acid, disintegrating you."))
@@ -109,10 +113,64 @@ puzzleRoomS1.Actions.append(RoomAction("Solve Puzzle","1", ResultType.DoorsOpen,
 sphynxRoomS1 = MakeRoom("Sphynx Room S.1", "Here lies a large sphynx. All doors close and the sphynx tells you a riddle.",ChallengeType.Puzzle)
 sphynxRoomS1.Actions.append(RoomAction("Solve Puzzle", "1", ResultType.DoorsOpen,"You solved the sphynx puzzle. Nice Job, yes we are going to make this part harder, don't worry."))
 emptyRoomS1 = MakeRoom("Empty Room S.1","You enter an empty room.",ChallengeType.NoChallenge)
+emptyRoomS2 = MakeRoom("Empty Room S.2","You enter an empty room.",ChallengeType.NoChallenge)
+trollCaveroomS2 = MakeRoom("Troll Cave S.2","Here lies a large troll. You wake him, and he blocks the way forward.",ChallengeType.Monster)
+trollCaveroomS2.Actions.append(RoomAction("Attack Troll", "1", ResultType.DoorsOpen,"The Troll dies, and your weapon gets stuck in the troll."))
+emptyRoomS3 = MakeRoom("Empty Room S.3","You enter an empty room.",ChallengeType.NoChallenge)
+keyVault = MakeRoom("Key Vault", "Ahead is a huge oranate room full of gold and silver. On a pedestal in the center lies a simple iron key",ChallengeType.NoChallenge)
+keyVault.Item = Item(ItemType.Money, "Simple Iron Key")
+#change the 'ItemType.Money' to 'ItemType.Key'
+pitFallS1 = MakeRoom("Pitfall Room S.1","While walking into this room the floor drops and you die", ChallengeType.DieImmediately)
+trapRoomS2 = MakeRoom("Trap Room S.2","You enter a square room with crushed bones on the ground. Before you can think of much else, the doors close and lock. the ceiling starts to fall, crushing you to death.", ChallengeType.DieImmediately)
+pitFallS2 = MakeRoom("Pitfall Room S.2","While walking into this room the floor drops and you die", ChallengeType.DieImmediately)
+trapRoomS3 = MakeRoom("Trap Room S.3","You enter a square room with crushed bones on the ground. Before you can think of much else, the doors close and lock. the ceiling starts to fall, crushing you to death.", ChallengeType.DieImmediately)
+trapRoomS4 = MakeRoom("Trap Room S.4","You enter a square room with crushed bones on the ground. Before you can think of much else, the doors close and lock. the ceiling starts to fall, crushing you to death.", ChallengeType.DieImmediately)
+#__________________________________________________
+### SHORTCUT ### --- swap trap room S1 and the temporary armory for shortcut to weapon:
+#armoryS1 = MakeRoom("Temporary Armory S.1","There is an abandoned Armory here. The armor racks are all empty, with the exception of a small spiky mace",ChallengeType.NoChallenge)
+#AddConnection(emptyRoomS1,armoryS1,'n')
+trapRoomS1 = MakeRoom("Trap Room S.1","You enter a square room with crushed bones on the ground. Before you can think of much else, the doors close and lock. the ceiling starts to fall, crushing you to death.", ChallengeType.DieImmediately)
+AddConnection(emptyRoomS1,trapRoomS1,'n')
+#__________________________________________________
 AddConnection(galleryRoom21,trollCaveroomS1,'e')
 AddConnection(trollCaveroomS1,puzzleRoomS1,'e')
 AddConnection(puzzleRoomS1,sphynxRoomS1,'e')
 AddConnection(sphynxRoomS1,emptyRoomS1,'e')
+AddConnection(emptyRoomS1,emptyRoomS2,'s')
+AddConnection(emptyRoomS2,trollCaveroomS2,'w')
+AddConnection(trollCaveroomS2,emptyRoomS3,'s')
+AddConnection(emptyRoomS3,keyVault,'e')
+AddConnection(emptyRoomS2,pitFallS1,'s')
+AddConnection(emptyRoomS2,trapRoomS2,'e')
+AddConnection(emptyRoomS3,pitFallS2,'w')
+AddConnection(emptyRoomS3,trapRoomS4,'s')
+AddConnection(trollCaveroomS2,trapRoomS3,'w')
+
+# --- Level 3 Rooms
+emptyRoom31 = MakeRoom("Empty Room 3.1","#### ENTERING LEVEL 3####\n You enter an empty room.",ChallengeType.NoChallenge)
+trollCaveroom31 = MakeRoom("Troll Cave 3.1","Here lies a large troll. You wake him, and he blocks the way forward.",ChallengeType.Monster)
+trollCaveroom31.Actions.append(RoomAction("Attack Troll", "1", ResultType.DoorsOpen,"The Troll dies, and your weapon gets stuck in the troll."))
+armory31 = MakeRoom("Armory 3.1", "There is an abandoned Armory here. The armor racks are all empty, with the exception of a small rusty dagger.",ChallengeType.NoChallenge)
+armory31.Item = Item(ItemType.Weapon,"small rusty dagger")
+puzzleRoom31 = MakeRoom("Puzzle Room 3.1","Solve puzzle ...",ChallengeType.Puzzle)
+puzzleRoom31.Actions.append(RoomAction("Solve Puzzle","1", ResultType.DoorsOpen,"You solved the sphynx puzzle. Nice Job, yes we are going to make this part harder, don't worry."))
+pitFall31 = MakeRoom("Pitfall Room 3.1","While walking into this room the floor drops and you die", ChallengeType.DieImmediately)
+trapRoom31 = MakeRoom("Trap Room 3.1","You enter a square room with crushed bones on the ground. Before you can think of much else, the doors close and lock. the ceiling starts to fall, crushing you to death.", ChallengeType.DieImmediately)
+emptyRoom32 = MakeRoom("Empty Room 3.2","You enter an empty room.",ChallengeType.NoChallenge)
+circularRoom1 = MakeRoom("Back of Circular Room","You step into a vast circular room. 8 doors heading in 8 directions stuns you, and for a second, you lose all sense of direction.",ChallengeType.NoChallenge)
+circularRoom2 = MakeRoom("Middle of Circular Room","As you approach the center, all doors face towards you",ChallengeType.NoChallenge)
+circularRoom3 = MakeRoom("Front of Circular Room","You are at the opposite end of this huge circle from where you started.",ChallengeType.NoChallenge)
+
+AddConnection(puzzleRoom22,emptyRoom31,'n')
+AddConnection(emptyRoom31,trollCaveroom31,'w')
+AddConnection(emptyRoom31,armory31,'e')
+AddConnection(emptyRoom31,puzzleRoom31,'n')
+AddConnection(puzzleRoom31,pitFall31,'w')
+AddConnection(puzzleRoom31,trapRoom31,'e')
+AddConnection(puzzleRoom31,emptyRoom32,'n')
+AddConnection(emptyRoom32,circularRoom1,'n')
+AddConnection(circularRoom1,circularRoom2,'n')
+AddConnection(circularRoom2,circularRoom3,'n')
 
 # --- Process Current Room
 def ProcessDeath():
@@ -128,7 +186,7 @@ def ProcessCurrentRoom():
     if CurrentRoom.ChallengeType == ChallengeType.DieImmediately:
         ProcessDeath()
         return
-    print("There is a door to the ",end='')
+    print("There is a door to the ",end='')    
     if CurrentRoom.ConnectionNorth is not None:
         print("n=North({}),".format(CurrentRoom.IsOpen('n')),end='')
     if CurrentRoom.ConnectionEast is not None:
@@ -180,7 +238,14 @@ def ProcessAction(action):
         if CurrentRoom.IsDefeated:
             print("puzzle already solved")
             return
-        #print("You solved the puzzle!")
+        if selectedAction.ResultType == ResultType.Die:
+            print(selectedAction.ResultDescription)
+            ProcessDeath()
+            return
+        elif selectedAction.ResultType == ResultType.DoorsOpen:
+            print()
+        else:
+            raise Exception("unknown result Type")
     elif CurrentRoom.ChallengeType == ChallengeType.MakeDiscovery:
         if selectedAction.ResultType == ResultType.Die:
             print("oops, you did " + selectedAction.Name + ". " + selectedAction.ResultDescription)
@@ -198,6 +263,9 @@ def ProcessAction(action):
 def ProcessMovement(direction):
     global CurrentRoom,DefaultRoom
     validroomId = None
+    if not CurrentRoom.IsDefeated and not CurrentRoom.IsDoorOpen(direction):
+        print("As you attempt to run between the monstrus legs, the troll reaches down and clutches you, bringing you up to his mouth, making you no more than a monster's snack.")
+        ProcessDeath()
     if direction == "n":
         if CurrentRoom.ConnectionNorth is not None:
             validroomId = CurrentRoom.ConnectionNorth
@@ -230,7 +298,6 @@ def ProcessMovement(direction):
 def ProcessCommand(command):
     global CurrentRoom
     global DefaultRoom
-    validroomId = None
     command = command.lower()
     if command is None or len(command) < 1:
         print("invalid empty command")
@@ -261,10 +328,10 @@ def ProcessCommand(command):
 print("Welcome to Mists of Horizon.")
 print("Fearlessly you approach the dragon's lair. You know that what comes next could result in great pain, but you are determined to stop the dragon, to save your city and country. To avenge your family. ")
 
-#DefaultRoom = entryHallRoom
-DefaultRoom = armory23
+DefaultRoom = entryHallRoom
+#DefaultRoom = emptyRoom31
 #DefaultRoom = oldMarketplace21
-#DefaultRoom = sphynxRoom # Default room after Death
+#DefaultRoom =               # Default room after Death
 CurrentRoom = DefaultRoom # Current room player is in
 
 ProcessCurrentRoom()
